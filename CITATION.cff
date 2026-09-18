@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "This is an unreleased candidate. Cite the exact tagged code release once available."
+title: "Pulse Oximetry Accuracy in Adult Sepsis: A Five-Cohort Retrospective Study Across North America, Europe, and East Asia — code and synthetic demonstration"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Haoran
+  - family-names: Tanigawa
+    given-names: Tomoki
+  - family-names: Tsuge
+    given-names: Shiho
+  - family-names: Nagahori
+    given-names: Kenta
+  - family-names: Pan
+    given-names: Qinyuan
+  - family-names: Xie
+    given-names: Yongpeng
+  - family-names: Okada
+    given-names: Akira
+  - family-names: Kondo
+    given-names: Yutaka
+license: MIT

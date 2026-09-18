@@ -1,0 +1,7 @@
+# Expected synthetic demonstration outputs
+
+`python demo/run_demo.py` prints `SYNTHETIC_DEMO_PASS <run-id>` after all stages and independent aggregate checks pass. It creates fresh, uniquely named directories immediately below `runs/`. Each stage has a `status.txt`; independent checkers create an `independent_qa_status.txt` where applicable. A zero process exit without the expected QA status is not sufficient.
+
+The standardized-event stage generates 20 invented stays from 19 invented patients. Its deterministic matched-pair totals are 80 for the independently constructed 60-minute analysis and 60 for the independently constructed 5-minute analysis. The downstream clinical and model-input checks must retain those counts. They verify structural Bias arithmetic and pair mean saturation, exact stay/pair linkage, SaO2 time-anchor alignment, unit and state consistency, and rejection of malformed inputs.
+
+The earlier synthetic upstream, imputation-pilot, forest, and four-cohort interface stages have additional `aggregate.tsv` and `checks.tsv` outputs checked by their corresponding `qa/verify_*.py` scripts. Numeric results from the pilot and forest are synthetic test outputs, not reference estimates for the paper. Generated binary or rendered files, if any, should be judged by schema and logical invariants rather than unstable byte checksums. No manuscript table or figure is an expected output of this candidate.

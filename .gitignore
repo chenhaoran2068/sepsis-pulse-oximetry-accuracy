@@ -1,0 +1,7 @@
+runs/
+qa/negative_checks*.tsv
+*.rds
+*.RData
+*.Rhistory
+__pycache__/
+*.pyc
