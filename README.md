@@ -1,6 +1,6 @@
 # Pulse Oximetry Accuracy in Adult Sepsis — code and synthetic demonstration
 
-**Release:** `v1.0.0`, published at <https://github.com/chenhaoran2068/sepsis-pulse-oximetry-accuracy/releases/tag/v1.0.0>.  
+**Release:** `v1.0.1`, published at <https://github.com/chenhaoran2068/sepsis-pulse-oximetry-accuracy/releases/tag/v1.0.1>.
 **Profile:** `code_with_synthetic_demo`.
 
 This candidate is intended to accompany *Pulse Oximetry Accuracy in Adult Sepsis: A Five-Cohort Retrospective Study Across North America, Europe, and East Asia*. It supplies a documented standardized-input interface and executable analysis modules tested with entirely invented records. The interface begins **after** database-specific extraction, cohort selection, source review, unit harmonization, and event-level quality control. It contains no clinical records or manuscript estimates.
