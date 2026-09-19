@@ -452,9 +452,12 @@ fit_proportional_bias <- function(z, nested = FALSE) {
   opt <- model@optinfo
   if (!is.null(opt$conv$lme4$messages)) stop("PROPORTIONAL_MODEL_CONVERGENCE_MESSAGE", call. = FALSE)
   co <- summary(model)$coefficients
+  intercept_at_90 <- co["(Intercept)", "Estimate"]
   slope <- co["centred_mean", "Estimate"]
   se <- co["centred_mean", "Std. Error"]
-  list(model = model, slope = slope, se = se, lower = slope - 1.96 * se, upper = slope + 1.96 * se, singular_fit = singular_fit)
+  list(model = model, intercept_at_90 = intercept_at_90, slope = slope, se = se,
+       lower = slope - 1.96 * se, upper = slope + 1.96 * se,
+       singular_fit = singular_fit)
 }
 
 fit_heteroscedasticity <- function(z, nested = FALSE) {

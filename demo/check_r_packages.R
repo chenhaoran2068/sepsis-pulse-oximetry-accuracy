@@ -6,7 +6,7 @@ dir.create(run_library, recursive = TRUE, showWarnings = FALSE)
 .libPaths(c(run_library, .libPaths()))
 needed <- c("data.table", "igraph", "digest", "lubridate", "stringr", "mice",
             "miceadds", "lme4", "Matrix", "nlme", "car", "sandwich",
-            "ranger", "fastshap")
+            "ranger", "fastshap", "posterior", "ggplot2", "patchwork", "cowplot")
 missing <- needed[!vapply(needed, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing)) {
   repository <- Sys.getenv("DEMO_CRAN_REPOSITORY", "https://cloud.r-project.org")

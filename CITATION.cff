@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "This is an unreleased candidate. Cite the exact tagged code release once available."
+message: "Please cite the fixed v1.0.0 release when using this code."
 title: "Pulse Oximetry Accuracy in Adult Sepsis: A Five-Cohort Retrospective Study Across North America, Europe, and East Asia — code and synthetic demonstration"
 type: software
 authors:
@@ -20,3 +20,7 @@ authors:
   - family-names: Kondo
     given-names: Yutaka
 license: MIT
+version: 1.0.0
+date-released: 2026-09-19
+repository-code: "https://github.com/chenhaoran2068/sepsis-pulse-oximetry-accuracy"
+url: "https://github.com/chenhaoran2068/sepsis-pulse-oximetry-accuracy/releases/tag/v1.0.0"

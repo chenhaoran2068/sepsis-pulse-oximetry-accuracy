@@ -1,0 +1,29 @@
+# Technical display integration — private candidate R2 (2026-09-19)
+
+This record supersedes the display-coverage statements in the copied R1 `FORMAL_CODE_INTEGRATION_STATUS.md`. It is **not** an assertion that the study's clinical results or submission PDFs were regenerated. The current source selection was checked against `09_manuscript/CURRENT.md` before the integration. No accepted real-data result, model, figure, manifest, QA record, or manuscript source was overwritten.
+
+## Tested boundary
+
+The six-file standardized-input analysis command remains one command per cohort. R2 adds `demo/render_30_displays.py`, which takes a five-cohort map of completed analysis-stage directories and produces the 30 display identities marked in `expected/paper-output-map.md`. It checks every input directory and the SHA-256 provenance of paired-analysis, agreement, threshold, LMM, and RF stages before creating a new output directory. It refuses an existing run ID and records hashes of all output PDFs. The run map and any generated row-level intermediates belong outside the published package.
+
+Five cohort-shaped **entirely invented** inputs were aligned to the same source identity per cohort, with independently constructed 60- and 5-minute analyses. The already completed 30 × 20 MI/LMM synthetic runs were reused only after their input hashes matched the selected analysis inputs. Fresh lightweight agreement/threshold and 60-minute RF-smoke outputs were generated from those matching inputs. The isolated `coherent-sep19-r3` display run produced 30 PDFs and receipts in one command. `tests/verify_30_display_bundle.py` independently verified the exact 30-item set, file hashes, source provenance, and numerical content of the implemented tables and grouped-SHAP figure inputs. Its final status was `THIRTY_DISPLAY_BUNDLE_INDEPENDENT_QA_PASS displays=30`. The wrong-window source and reused-run-ID counterexamples were rejected without changing the prior bundle.
+
+The initial coherent-display attempt exposed a legitimate `NO_DENOMINATOR` ICU-day cell in the invented data. The day-figure and day-table renderers were revised to treat it as an empty cell rather than an invalid observation; inconsistent nonzero counts or estimates for such a cell are rejected. The first failed display bundle and all other failed synthetic attempts remain in ignored `runs/` as audit evidence. In a separate check, a fixed horizontal axis could clip unusually wide stratum limits, so Supplementary Figure 4 now derives its axis limit from finite source LoA values. These two revisions were tested again in the fresh `coherent-sep19-r3` bundle.
+
+## Second-pass audit
+
+The independent 2026-09-19 audit rehashed all proposed public files and reproduced the 30-PDF bundle's independent QA result. Poppler initially could not open 25 PDFs from the long Windows candidate path. All 30 opened successfully after non-destructive copies to a short temporary path, and Main Figure 2, Supplementary Table 21, and Supplementary Figure 7 rendered for visual inspection. This was a path-length limitation, not a PDF defect. A separate invented 140-cell, seven-day fixture passed the ICU-day figure QA (35 checks) and table QA (324 checks), including sparse cells; the coherent end-to-end fixture had observations only on Day 1.
+
+The second-pass clean one-command `demo/run_demo.py` check exposed an obsolete expected SHA-256 for the revised `agreement_core.R` in `src/run_upstream_synthetic.R`. The first attempt (`secondpass-sep19-a`) failed closed at `MODULE_SOURCE_HASH_MISMATCH` and remains preserved in ignored `runs/`. Updating only that expected hash to the candidate core's observed SHA-256 allowed a fresh run (`secondpass-sep19-b`) to reach `SYNTHETIC_DEMO_PASS` with its independent stage QA. No calculation logic, real result, or accepted manuscript asset was changed. The proposed public inventory must be regenerated after this documentation and hash-guard change.
+
+## Excluded displays and interpretation
+
+Supplementary Tables 1–5 and Supplementary Figure 1 depend on pre-standardization source-event, specimen, quality-control, and cohort-selection history. Supplementary Tables 6–9 depend on baseline vitals, laboratory values, and completeness fields not present in the current six-file analysis contract. Therefore, **10 of 40 current display identities have no renderer from this contract**. Adding rows that merely copy the approved table cells would not establish a reproducible generation chain; an additional, reviewed upstream standardized-input contract would be needed.
+
+On 2026-09-19, the study owner selected option A: retain the six-file standardized-input boundary and disclose these ten exclusions rather than expanding the public contract to upstream source and baseline-display data. This scope decision does not waive the separate exact-inventory and publication gates below.
+
+The 30 generated PDFs use technical candidate formatting and ASCII fallbacks in some labels. They are not byte- or layout-equivalent to the owner-approved LaTeX/PDF submission assets. No full five-cohort clinical-data rerun, clinical numerical equivalence audit, or exact submission-figure comparison was performed. The synthetic RF runs used smoke settings; the prior R1 MIMIC-shaped invented run covered full paper computational settings. Neither test establishes clinical RF performance.
+
+## Publication record and boundary
+
+The owner approved the exact option-A publication scope and the 128-file inventory before the `v1.0.0` release. The release includes no real patient data or real-result intermediates and retains the ten-display exclusion. The permanent release is <https://github.com/chenhaoran2068/sepsis-pulse-oximetry-accuracy/releases/tag/v1.0.0>. Manuscript Code availability may cite this release only after independent public-access, tag, commit, and content verification.
